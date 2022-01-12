@@ -1,0 +1,38 @@
+<html>
+	<head>
+		<title>Jerome Sicard - Assorted objects</title>
+		<link rel="icon" href="RecyclingSymbol.png" type="image/x-icon" />
+	</head>
+	<center>
+	<body>
+		<div>
+			<img class="objects" src="objects/1.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
+			<img class="objects" src="objects/2.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
+			<img class="objects" src="objects/3.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
+			<img class="objects" src="objects/4.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
+		</div>
+		
+	<script>
+	//To add a slideshow, add a 1 to the slide index as well as a name to the slide id, and showDivs(1,x). 
+	var slideIndex = [1];
+	var slideId = ["objects"]
+		showDivs(1, 0);
+		
+	//Do not change any thing below this
+	function plusDivs(n, no) {
+ 		showDivs(slideIndex[no] += n, no);
+	}
+
+	function showDivs(n, no) {
+  		var i;
+  		var x = document.getElementsByClassName(slideId[no]);
+  		if (n > x.length) {slideIndex[no] = 1}
+  		if (n < 1) {slideIndex[no] = x.length}
+  		for (i = 0; i < x.length; i++) {
+    		x[i].style.display = "none";  
+  		}
+  		x[slideIndex[no]-1].style.display = "block";  
+	}
+	</script>
+	</body>
+</html>

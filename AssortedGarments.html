@@ -3,51 +3,21 @@
 		<title>Jerome Sicard - Assorted Garments</title>
 		<link rel="icon" href="RecyclingSymbol.png" type="image/x-icon" />
 	</head>
-	<center>
-	<body>
-		<div>
-			<img class="shirts" src="shirts/1.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/2.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/3.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/4.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/5.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/6.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/7.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/8.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/9.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/10.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/11.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/12.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/13.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/14.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/15.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/16.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/17.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/18.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-			<img class="shirts" src="shirts/19.jpg" onclick="plusDivs(1,0)" style="width:40%; cursor:ew-resize">
-		</div>
-		
-	<script>
-	//To add a slideshow, add a 1 to the slide index as well as a name to the slide id, and showDivs(1,x). 
-	var slideIndex = [1];
-	var slideId = ["shirts"]
-		showDivs(1, 0);
-		
-	//Do not change any thing below this
-	function plusDivs(n, no) {
- 		showDivs(slideIndex[no] += n, no);
-	}
-
-	function showDivs(n, no) {
-  		var i;
-  		var x = document.getElementsByClassName(slideId[no]);
-  		if (n > x.length) {slideIndex[no] = 1}
-  		if (n < 1) {slideIndex[no] = x.length}
-  		for (i = 0; i < x.length; i++) {
-    		x[i].style.display = "none";  
-  		}
-  		x[slideIndex[no]-1].style.display = "block";  
-	}
-	</script>
-	</body>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<frameset cols="5%,*,5%">
+			<!--left margin-->
+			<frame src="blank.html" frameborder="0" noresize="noresize">
+				<!--center framset-->
+				<frameset rows="5%,*,18%,5%">
+					<!--top margin-->
+					<frame src="blank.html" frameborder="0" noresize="noresize">
+					<!--content frame-->
+					<frame src="AssortedGarmentsContent.html" frameborder="0" name="ContentFrame" noresize="noresize">
+					<!--caption-->
+					<frame src="Selectors/AssortedGarmentsBackButton.html" frameborder="0" name="CaptionFrame" noresize="noresize">
+					<!--bottom margin-->
+					<frame src="blank.html" frameborder="0" noresize="noresize">
+			<!--right margin-->
+			<frame src="blank.html" frameborder="0" noresize="noresize">
+		</frameset>
 </html>
