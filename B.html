@@ -1,0 +1,20 @@
+<html>
+	<body link="black" vlink="black"><br><br>
+		<a href="F.html" target="LeftBottomRight" 
+		onClick="top.MiddleLeft.location='D.html';
+		top.BottomLeft.location='E.html';
+		top.LeftTopRight.location='G.html';"
+		style="text-decoration:none">
+		<!--image info-->
+		<div id="image"><img src="B.png" height="100px" width="100px"/></div>
+		<!--text info-->
+		<div id="hover">
+		<font face="arial" size="2" align="center">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;WORK</font></div>
+		<!--css hover effect-->
+		<style>
+			#hover { display: none; }
+			#image:hover + #hover { display: block; }
+		</style>
+		</a>
+	</body>
+</html>
