@@ -204,15 +204,16 @@
 
 	<!--image info-->
 		<a onClick="random_80()">
-        <div id="image" align="center"><img src="K.png" height="100px" width="100px" /></div>
+        <div class="pointer" id="image" align="center"><img src="K.png" height="100px" width="100px" /></div>
 	<!--text info-->
 		<div id="hover" align="center">
 		<font face="arial" size="2" align="center">ASSETS</font></div>
     <!--css hover effect-->
         <style>
+            .pointer {cursor: pointer;}
             #hover { display: none; }
             #image:hover + #hover { display: block; }
 		</style>
-	</a>
+	   </a>
 	</body>
 </html>
