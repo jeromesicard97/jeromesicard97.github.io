@@ -292,6 +292,10 @@ function createSlot(link) {
   return slot
 }
 
+// ENTER (1) is never hidden. After ENTER is used, WORK (2) and INFO (3) stay visible
+// when either is clicked; only their child groups swap.
+const PERSISTENT_KEYS = ['enter', 'work', 'info']
+
 function hideAllExcept(keepKeys) {
   const keep = new Set(keepKeys)
   for (const [key, el] of linkElements) {
@@ -303,7 +307,13 @@ function handleActivate(link) {
   const action = linkAction(link)
   if (action === 'reveal') {
     const revealed = Array.isArray(link.reveals) ? link.reveals : []
-    hideAllExcept(revealed)
+    if (link.key === 'enter') {
+      // Landing → show ENTER + WORK + INFO
+      hideAllExcept(['enter', ...revealed])
+    } else {
+      // WORK or INFO → keep 1/2/3, show that group's children
+      hideAllExcept([...PERSISTENT_KEYS, ...revealed])
+    }
     return
   }
   if (action === 'random') {
