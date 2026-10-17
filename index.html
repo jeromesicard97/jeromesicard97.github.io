@@ -15,17 +15,20 @@
          automatically under @media (max-width: 768px) in styles.css.
 
     Push changes via GitHub Desktop so GitHub Pages updates the live site.
+
+    Local preview: open this file after saving, or use a simple local server.
+    script.js must load as a classic script (not type="module") for file://.
   -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Jerome Sicard</title>
   <meta name="description" content="Jerome Sicard">
   <link rel="stylesheet" href="styles.css">
-  <script type="module" src="script.js"></script>
 </head>
 <body>
   <main id="app" class="stage" aria-live="polite">
     <p class="status" id="status">Loading…</p>
   </main>
+  <script src="script.js"></script>
 </body>
 </html>
