@@ -1,0 +1,634 @@
+[
+  {
+    "_type": "archiveImage",
+    "_key": "img0",
+    "imageUrl": "WebImages/Photos/Jeromance1.jpg",
+    "linkUrl": "WebImages/Photos/Jeromance1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img1",
+    "imageUrl": "WebImages/Photos/Jeromance2.jpg",
+    "linkUrl": "WebImages/Photos/Jeromance2.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img2",
+    "imageUrl": "WebImages/Photos/Jeromance3.jpg",
+    "linkUrl": "WebImages/Photos/Jeromance3.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img3",
+    "imageUrl": "WebImages/Photos/Jeromance4.jpg",
+    "linkUrl": "WebImages/Photos/Jeromance4.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt4",
+    "text": "Lancaster (2), 2025.\n Ammunition box, casters, kantha quilt, key chain, pewter milagros, phragmites, string, twine.\n\n Included in Fourth River at Romance Gallery. Documentation by Chris Uhren.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveSeparator",
+    "_key": "sep5"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img6",
+    "imageUrl": "WebImages/Photos/B5(JKF)1.jpg",
+    "linkUrl": "WebImages/Photos/B5(JKF)1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img7",
+    "imageUrl": "WebImages/Photos/B5(JKF)2.jpg",
+    "linkUrl": "WebImages/Photos/B5(JKF)2.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img8",
+    "imageUrl": "WebImages/Photos/B5(JKF)3.jpg",
+    "linkUrl": "WebImages/Photos/B5(JKF)3.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img9",
+    "imageUrl": "WebImages/Photos/B5(JKF)4.jpg",
+    "linkUrl": "WebImages/Photos/B5(JKF)4.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt10",
+    "text": "Blind #5 (JKF), 2024.\n Inkjet print in artist's frame.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveSeparator",
+    "_key": "sep11"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img12",
+    "imageUrl": "WebImages/shirts/1.jpg",
+    "linkUrl": "WebImages/shirts/1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img13",
+    "imageUrl": "WebImages/shirts/8.jpg",
+    "linkUrl": "WebImages/shirts/8.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img14",
+    "imageUrl": "WebImages/shirts/14.jpg",
+    "linkUrl": "WebImages/shirts/14.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img15",
+    "imageUrl": "WebImages/shirts/17.jpg",
+    "linkUrl": "WebImages/shirts/17.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt16",
+    "text": "Geology Camp, 2019.\n Silkscreen on cotton.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveSeparator",
+    "_key": "sep17"
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt18",
+    "text": "Studio (2024)",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img19",
+    "imageUrl": "WebImages/Photos/PittPhysics.jpg",
+    "linkUrl": "WebImages/Photos/PittPhysics.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt20",
+    "text": "University of Pittsburgh, 1992",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveSeparator",
+    "_key": "sep21"
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt22",
+    "text": "Studio (2024)",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img23",
+    "imageUrl": "WebImages/Photos/Blind_Med1.jpg",
+    "linkUrl": "WebImages/Photos/Blind_Med1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img24",
+    "imageUrl": "WebImages/Photos/Blind_Med2.jpg",
+    "linkUrl": "WebImages/Photos/Blind_Med2.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img25",
+    "imageUrl": "WebImages/Photos/Blind_Small1.jpg",
+    "linkUrl": "WebImages/Photos/Blind_Small1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img26",
+    "imageUrl": "WebImages/Photos/Blind_Small2.jpg",
+    "linkUrl": "WebImages/Photos/Blind_Small2.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img27",
+    "imageUrl": "WebImages/Photos/Blind_Tall1.jpg",
+    "linkUrl": "WebImages/Photos/Blind_Tall1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt28",
+    "text": "Test Blinds 2-4",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveSeparator",
+    "_key": "sep29"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img30",
+    "imageUrl": "WebImages/Photos/Untitled_Frame1.jpg",
+    "linkUrl": "WebImages/Photos/Untitled_Frame1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt31",
+    "text": "Untitled, 2024.\n Inkjet print in artist's frame.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img32",
+    "imageUrl": "WebImages/Photos/Untitled_Frame2.jpg",
+    "linkUrl": "WebImages/Photos/Untitled_Frame2.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt33",
+    "text": "Untitled, 2024.\n Inkjet print in artist's frame.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveSeparator",
+    "_key": "sep34"
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt35",
+    "text": "Interburden with Cielo Saucedo, 2023\n (___) Project Space, Wilkinsburg, PA",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img36",
+    "imageUrl": "WebImages/Photos/I1.jpg",
+    "linkUrl": "WebImages/Photos/I1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img37",
+    "imageUrl": "WebImages/Photos/I2.jpg",
+    "linkUrl": "WebImages/Photos/I2.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt38",
+    "text": "Untitled, 2023.\n Found photographs, polyester, vinyl, zinc.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img39",
+    "imageUrl": "WebImages/Photos/I3.jpg",
+    "linkUrl": "WebImages/Photos/I3.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img40",
+    "imageUrl": "WebImages/Photos/I4.jpg",
+    "linkUrl": "WebImages/Photos/I4.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img41",
+    "imageUrl": "WebImages/Photos/I5.jpg",
+    "linkUrl": "WebImages/Photos/I5.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img42",
+    "imageUrl": "WebImages/Photos/I6.jpg",
+    "linkUrl": "WebImages/Photos/I6.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img43",
+    "imageUrl": "WebImages/Photos/I7.jpg",
+    "linkUrl": "WebImages/Photos/I7.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img44",
+    "imageUrl": "WebImages/Photos/I8.jpg",
+    "linkUrl": "WebImages/Photos/I8.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt45",
+    "text": "CMFMFB, 2023.\n Aluminum, found photographs, polyester, steel, vinyl, zinc.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img46",
+    "imageUrl": "WebImages/Photos/I9.jpg",
+    "linkUrl": "WebImages/Photos/I9.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt47",
+    "text": "Hunting Blind, 2023\n Plastic, PVC, wood, zinc.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt48",
+    "text": "CMFMFB and Hunting Blind are reproductions of structures found at a Carnegie Mellon University construction site and a recreational hunting ground, respectively, within a 10 mile radius of the Interburden exhibition space. Together in conversation, these two forms blur the discontinuity of Pittsburgh\u2019s working-class identity and its contemporary, tertiary economy. Throughout this work, repurposed vernacular photography from the 1970s-1990s serves as documentation of Pittsburgh's economic transition.",
+    "alignment": "justify"
+  },
+  {
+    "_type": "archiveSeparator",
+    "_key": "sep49"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img50",
+    "imageUrl": "WebImages/Photos/Sweetgum.jpg",
+    "linkUrl": "WebImages/Photos/Sweetgum.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt51",
+    "text": "Sweetgum Sterilization, 2022.\n Inkjet print in artist's frame.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img52",
+    "imageUrl": "WebImages/Photos/Sadie.jpg",
+    "linkUrl": "WebImages/Photos/Sadie.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt53",
+    "text": "Sadie, 2022.\n Inkjet print in artist's frame.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveSeparator",
+    "_key": "sep54"
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt55",
+    "text": "Divine Theory with Miguel Mathias (2022)\n Austin Arts Center, Hartford, CT",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img56",
+    "imageUrl": "WebImages/Photos/DT1.jpg",
+    "linkUrl": "WebImages/Photos/DT1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt57",
+    "text": "Untitled, 2021.\n Candle, VHF antenna mount.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img58",
+    "imageUrl": "WebImages/Photos/DT2.jpg",
+    "linkUrl": "WebImages/Photos/DT2.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img59",
+    "imageUrl": "WebImages/Photos/DT3.jpg",
+    "linkUrl": "WebImages/Photos/DT3.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img60",
+    "imageUrl": "WebImages/Photos/DT4.jpg",
+    "linkUrl": "WebImages/Photos/DT4.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt61",
+    "text": "Lancaster, 2022.\n Casters, kantha quilt, pallet feeder, pewter milagros, phragmites, string, twine.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img62",
+    "imageUrl": "WebImages/Photos/DT5.jpg",
+    "linkUrl": "WebImages/Photos/DT5.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img63",
+    "imageUrl": "WebImages/Photos/DT6.jpg",
+    "linkUrl": "WebImages/Photos/DT6.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img64",
+    "imageUrl": "WebImages/Photos/DT7.jpg",
+    "linkUrl": "WebImages/Photos/DT7.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt65",
+    "text": "Untitled, 2021.\n Graphite on paper in artist\u2019s frame.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img66",
+    "imageUrl": "WebImages/Photos/DT8.jpg",
+    "linkUrl": "WebImages/Photos/DT8.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img67",
+    "imageUrl": "WebImages/Photos/DT9.jpg",
+    "linkUrl": "WebImages/Photos/DT9.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt68",
+    "text": "Untitled, 2021.\n Ink on carved wood, hardware.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveSeparator",
+    "_key": "sep69"
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt70",
+    "text": "Jerome Sicard \u00b7 White Horse Mix",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveSeparator",
+    "_key": "sep71"
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt72",
+    "text": "Studio (2017)",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img73",
+    "imageUrl": "WebImages/Photos/R2.jpg",
+    "linkUrl": "WebImages/Photos/R2.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img74",
+    "imageUrl": "WebImages/Photos/R3.jpg",
+    "linkUrl": "WebImages/Photos/R3.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img75",
+    "imageUrl": "WebImages/Photos/R4.jpg",
+    "linkUrl": "WebImages/Photos/R4.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img76",
+    "imageUrl": "WebImages/Photos/R5.jpg",
+    "linkUrl": "WebImages/Photos/R5.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveText",
+    "_key": "txt77",
+    "text": "* * *\n   No Love In Alsaksa, 2017.",
+    "alignment": "center"
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img78",
+    "imageUrl": "WebImages/Photos/1.jpg",
+    "linkUrl": "WebImages/Photos/1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img79",
+    "imageUrl": "WebImages/Photos/2.jpg",
+    "linkUrl": "WebImages/Photos/2.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img80",
+    "imageUrl": "WebImages/Photos/Geology.png",
+    "linkUrl": "WebImages/Photos/Geology.png",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img81",
+    "imageUrl": "WebImages/Photos/2.1.jpg",
+    "linkUrl": "WebImages/Photos/2.1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img82",
+    "imageUrl": "WebImages/Photos/4.jpg",
+    "linkUrl": "WebImages/Photos/4.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img83",
+    "imageUrl": "WebImages/Photos/4.1.jpg",
+    "linkUrl": "WebImages/Photos/4.1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img84",
+    "imageUrl": "WebImages/Photos/Archaeology.png",
+    "linkUrl": "WebImages/Photos/Archaeology.png",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img85",
+    "imageUrl": "WebImages/Photos/5.jpg",
+    "linkUrl": "WebImages/Photos/5.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img86",
+    "imageUrl": "WebImages/Photos/6.jpg",
+    "linkUrl": "WebImages/Photos/6.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img87",
+    "imageUrl": "WebImages/Photos/Farm.png",
+    "linkUrl": "WebImages/Photos/Farm.png",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img88",
+    "imageUrl": "WebImages/Photos/6.1.jpg",
+    "linkUrl": "WebImages/Photos/6.1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img89",
+    "imageUrl": "WebImages/Photos/6.2.jpg",
+    "linkUrl": "WebImages/Photos/6.2.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img90",
+    "imageUrl": "WebImages/Photos/8.jpg",
+    "linkUrl": "WebImages/Photos/8.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img91",
+    "imageUrl": "WebImages/Photos/Philosophy.png",
+    "linkUrl": "WebImages/Photos/Philosophy.png",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img92",
+    "imageUrl": "WebImages/Photos/9.1.jpg",
+    "linkUrl": "WebImages/Photos/9.1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img93",
+    "imageUrl": "WebImages/Photos/11.jpg",
+    "linkUrl": "WebImages/Photos/11.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img94",
+    "imageUrl": "WebImages/Photos/SitkaRidge.png",
+    "linkUrl": "WebImages/Photos/SitkaRidge.png",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img95",
+    "imageUrl": "WebImages/Photos/11.1.jpg",
+    "linkUrl": "WebImages/Photos/11.1.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img96",
+    "imageUrl": "WebImages/Photos/12.jpg",
+    "linkUrl": "WebImages/Photos/12.jpg",
+    "alt": ""
+  },
+  {
+    "_type": "archiveImage",
+    "_key": "img97",
+    "imageUrl": "WebImages/Photos/13.jpg",
+    "linkUrl": "WebImages/Photos/13.jpg",
+    "alt": ""
+  }
+]
