@@ -1,0 +1,643 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100%;
+  margin: 0;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #fff;
+  color: #000;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.status {
+  position: absolute;
+  inset: 0;
+  display: grid;
+  place-items: center;
+  margin: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14pt;
+  text-transform: uppercase;
+}
+
+/* Desktop: same general regions as the source, with irregular horizontal offsets */
+.stage {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.slot {
+  position: absolute;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  min-height: 0;
+  padding: 0.25rem;
+  overflow: visible;
+}
+
+/* Freeform placement from Sanity visual editor (x/y percentages) */
+.slot[data-free='true'] {
+  width: auto;
+  height: auto;
+  transform: translate(-50%, -50%);
+}
+
+/* Left band — staggered X and Y */
+.slot[data-position="topLeft"] {
+  left: 3%;
+  top: 6%;
+  width: 28%;
+  height: 26%;
+}
+
+.slot[data-position="middleLeft"] {
+  left: 14%;
+  top: 31%;
+  width: 26%;
+  height: 24%;
+}
+
+.slot[data-position="bottomLeft"] {
+  left: 1%;
+  top: 68%;
+  width: 28%;
+  height: 30%;
+}
+
+/* Middle band — each row on its own vertical level */
+/* Centered on X between middleLeft (4) and middle (1): centers at 27% and 46% → 36.5% */
+.slot[data-position="middleTop"] {
+  left: 22.5%;
+  top: 14%;
+  width: 28%;
+  height: 26%;
+}
+
+.slot[data-position="middle"] {
+  left: 50%;
+  top: 50%;
+  width: 30%;
+  height: 28%;
+  transform: translate(-50%, -50%);
+}
+
+/* Slightly right of middleTop (2) at 22.5% */
+.slot[data-position="middleBottom"] {
+  left: 25%;
+  top: calc(58% + 10px);
+  width: 28%;
+  height: 26%;
+}
+
+/* Right band — staggered pairs, no shared tops */
+.slot[data-position="leftTopRight"] {
+  left: 61%;
+  top: 4%;
+  width: 16%;
+  height: 26%;
+}
+
+.slot[data-position="rightTopRight"] {
+  left: 83%;
+  top: 18%;
+  width: 15%;
+  height: 24%;
+}
+
+.slot[data-position="middleRight"] {
+  left: 69%;
+  top: 44%;
+  width: 26%;
+  height: 23%;
+}
+
+.slot[data-position="leftBottomRight"] {
+  left: 63%;
+  top: 54%;
+  width: 16%;
+  height: 31%;
+}
+
+.slot[data-position="rightBottomRight"] {
+  left: 78%;
+  top: 72%;
+  width: 18%;
+  height: 28%;
+}
+
+.nav-link {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: auto;
+  max-width: 100%;
+  text-align: center;
+  cursor: pointer;
+  background: none;
+  border: 0;
+  padding: 0;
+  font: inherit;
+  color: inherit;
+}
+
+.nav-link[hidden] {
+  display: none !important;
+}
+
+/* Same vertical dimension as source PNGs (height="100px") */
+.nav-number {
+  display: block;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 100px;
+  line-height: 100px;
+  height: 100px;
+  font-weight: 400;
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.nav-number--sm {
+  font-size: 50px;
+  line-height: 50px;
+  height: 50px;
+}
+
+.nav-label {
+  display: none;
+  margin: 0 auto;
+  padding-top: 0.2em;
+  width: 100%;
+  max-width: 14ch;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  line-height: 1.15;
+  text-align: center;
+  text-transform: uppercase;
+  overflow-wrap: break-word;
+}
+
+.nav-label-mobile {
+  display: none;
+}
+
+@media (hover: hover) and (min-width: 769px) {
+  .nav-link:hover .nav-label,
+  .nav-link:focus-visible .nav-label {
+    display: block;
+  }
+}
+
+/* Subpages: content + floating numbered controls */
+.page {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.page-back {
+  position: fixed;
+  z-index: 2;
+  top: 1.25rem;
+  left: 1.25rem;
+  right: auto;
+}
+
+.page-back--offset {
+  top: 1.25rem;
+  left: 1.25rem;
+  right: auto;
+}
+
+.page-main {
+  margin: 0 auto;
+  padding: 6rem 1.5rem 3rem;
+  max-width: 40rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  line-height: 1.45;
+  text-align: justify;
+}
+
+.page-main img {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 0.75rem;
+}
+
+/* Archive: every image matches the first image width; no horizontal scroll */
+.archive-page {
+  overflow-x: hidden;
+  max-width: 100%;
+}
+
+.archive-main {
+  --archive-image-width: 100%;
+  width: 100%;
+  max-width: min(40rem, 100%);
+  box-sizing: border-box;
+  overflow-x: hidden;
+}
+
+.archive-main .archive-image-link {
+  display: block;
+  width: 100%;
+  max-width: var(--archive-image-width);
+  margin: 0 auto 0.75rem;
+  box-sizing: border-box;
+}
+
+.archive-main .archive-image-link img,
+.archive-main img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+.archive-main .archive-copy {
+  max-width: var(--archive-image-width);
+  margin: 0 auto 1.25rem;
+}
+
+.archive-main .archive-copy p {
+  margin: 0 0 0.75rem;
+}
+
+.archive-main .archive-copy[data-align="center"] p {
+  text-align: center;
+}
+
+.archive-main .archive-copy[data-align="justify"] p {
+  text-align: justify;
+}
+
+.custom-page-title {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14pt;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin: 0 0 1.5rem;
+}
+
+.custom-page-text {
+  margin: 0 0 1.25rem;
+}
+
+.custom-page-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  margin: 0 0 1.25rem;
+}
+
+.archive-main .archive-sep {
+  text-align: center;
+  margin: 2rem auto;
+  max-width: var(--archive-image-width);
+}
+
+.contact-form {
+  margin-top: 1.25rem;
+}
+
+.contact-form input[type="submit"] {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  cursor: pointer;
+}
+
+/* Assorted garments slideshow */
+.garments {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 2rem 1rem 7rem;
+}
+
+.garments-slide {
+  max-height: min(70vh, 720px);
+  width: auto;
+  max-width: 100%;
+  height: auto;
+  cursor: ew-resize;
+  display: none;
+}
+
+.garments-slide.is-active {
+  display: block;
+}
+
+.garments-back {
+  position: absolute;
+  bottom: 6%;
+  left: 50%;
+  transform: translateX(-35%);
+}
+
+/* No Love hub — staggered positions */
+.nl-stage {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.nl-stage .nav-link[data-key="back"] {
+  position: absolute;
+  top: 10%;
+  left: 8%;
+}
+
+.nl-stage .nav-link[data-key="content"] {
+  position: absolute;
+  top: 38%;
+  left: 36%;
+}
+
+.nl-stage .nav-link[data-key="bibliography"] {
+  position: absolute;
+  top: 34%;
+  left: 68%;
+}
+
+.nl-stage .nav-link[data-key="publication"] {
+  position: absolute;
+  top: 62%;
+  left: 58%;
+}
+
+/* Publication subpage links */
+.pub-stage {
+  position: relative;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.pub-stage .nav-link[data-key="back"] {
+  position: absolute;
+  top: 12%;
+  left: 18%;
+}
+
+.pub-stage .nav-link[data-key="pdf"] {
+  position: absolute;
+  top: 22%;
+  left: 52%;
+}
+
+.pub-stage .nav-link[data-key="physical"] {
+  position: absolute;
+  top: 58%;
+  left: 38%;
+}
+
+/* Content slideshow (No Love) */
+.slideshow {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 1.25rem;
+  min-height: 100vh;
+  min-height: 100dvh;
+  padding: 2rem 1rem 6rem;
+}
+
+.slideshow-image {
+  max-height: min(65vh, 450px);
+  width: auto;
+  max-width: 100%;
+  height: auto;
+}
+
+.slideshow-controls {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.slideshow-arrow {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 20px;
+  line-height: 1;
+  background: none;
+  border: 0;
+  padding: 0.25rem 0.5rem;
+  cursor: pointer;
+  color: inherit;
+}
+
+.slideshow-back {
+  position: absolute;
+  bottom: 5%;
+  left: 50%;
+  transform: translateX(-20%);
+}
+
+.physical-actions {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 2rem;
+  padding: 8rem 1.5rem 3rem;
+}
+
+.physical-actions form {
+  margin: 0;
+}
+
+.physical-actions input[type="submit"] {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  cursor: pointer;
+}
+
+.citations {
+  max-width: 36rem;
+  margin: 0 auto;
+  padding: 6rem 1.5rem 3rem;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 10pt;
+  line-height: 1.45;
+}
+
+.citations h2 {
+  font-size: 10pt;
+  font-weight: 400;
+  text-align: center;
+  margin: 0 0 1.5rem;
+}
+
+.citations p {
+  margin: 0 0 1rem;
+}
+
+.citations-back {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+/* Mobile: labels replace numbers; ≥14pt; stacked without overlap */
+@media (max-width: 768px) {
+  .stage {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: flex-start;
+    gap: 1.1rem;
+    padding: 1.5rem 1.1rem 2.5rem;
+    min-height: 100vh;
+    min-height: 100dvh;
+  }
+
+  .slot {
+    position: static;
+    display: contents;
+    width: auto;
+    height: auto;
+    left: auto;
+    top: auto;
+    padding: 0;
+  }
+
+  .nav-link {
+    display: block;
+    width: 100%;
+    padding: 0.2rem 0;
+    text-align: left;
+  }
+
+  .nav-link[hidden] {
+    display: none !important;
+  }
+
+  .nav-number,
+  .nav-number--sm {
+    display: none;
+  }
+
+  /* Index: numbered mobile labels (1. JEROME SICARD, 2. WORK, …) */
+  .stage .nav-label {
+    display: none;
+  }
+
+  .stage .nav-label-mobile {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: max(14pt, 1rem);
+    line-height: 1.4;
+    text-align: left;
+    text-transform: uppercase;
+    overflow-wrap: anywhere;
+  }
+
+  /* Subpages: keep plain hover labels as the mobile text */
+  .page .nav-label,
+  .nl-stage .nav-label,
+  .pub-stage .nav-label,
+  .garments .nav-label,
+  .slideshow .nav-label,
+  .citations .nav-label {
+    display: block;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    font-size: max(14pt, 1rem);
+    line-height: 1.4;
+    text-align: left;
+    overflow-wrap: anywhere;
+  }
+
+  .page-back,
+  .page-back--offset {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    right: auto;
+    bottom: auto;
+    transform: none;
+    width: auto;
+  }
+
+  .garments-back,
+  .slideshow-back,
+  .nl-stage .nav-link,
+  .pub-stage .nav-link {
+    position: static;
+    transform: none;
+    left: auto;
+    top: auto;
+    bottom: auto;
+  }
+
+  .page,
+  .nl-stage,
+  .pub-stage,
+  .garments,
+  .slideshow {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 1.1rem;
+    padding: 1.5rem 1.1rem 2.5rem;
+  }
+
+  .page-main,
+  .citations {
+    padding: 0;
+    max-width: none;
+    order: 2;
+  }
+
+  .archive-main {
+    max-width: 100%;
+    padding-left: 1.1rem;
+    padding-right: 1.1rem;
+  }
+
+  .page-back,
+  .nl-stage .nav-link[data-key="back"],
+  .pub-stage .nav-link[data-key="back"],
+  .garments-back,
+  .slideshow-back,
+  .citations-back {
+    order: 0;
+  }
+
+  .garments-slide.is-active,
+  .slideshow-image {
+    max-height: none;
+    width: 100%;
+  }
+}

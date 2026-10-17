@@ -1,23 +1,65 @@
-<html>
-	<head>
-		<title>No Love in Alaska - Content</title>
-		<link rel="icon" href="SitkaSpruce.png" type="image/x-icon" />
-	</head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<frameset cols="5%,*,5%">
-			<!--left margin-->
-			<frame src="blank.html" frameborder="0" noresize="noresize">
-				<!--center framset-->
-				<frameset rows="5%,*,18%,5%">
-					<!--top margin-->
-					<frame src="blank.html" frameborder="0" noresize="noresize">
-					<!--content frame-->
-					<frame src="Photohtmls/1.html" frameborder="0" name="ContentFrame" noresize="noresize">
-					<!--caption-->
-					<frame src="Selectors/1selector.html" frameborder="0" name="CaptionFrame" noresize="noresize">
-					<!--bottom margin-->
-					<frame src="blank.html" frameborder="0" noresize="noresize">
-			<!--right margin-->
-			<frame src="blank.html" frameborder="0" noresize="noresize">
-		</frameset>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>No Love in Alaska - Content</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page slideshow" id="slideshow">
+    <img class="slideshow-image" id="slide-image" alt="No Love in Alaska">
+    <div class="slideshow-controls">
+      <button class="slideshow-arrow" id="prev" type="button" aria-label="Previous">←</button>
+      <button class="slideshow-arrow" id="next" type="button" aria-label="Next">→</button>
+    </div>
+    <a class="nav-link slideshow-back" href="NoLoveInAlaska.html" aria-label="BACK">
+      <span class="nav-number nav-number--sm" aria-hidden="true">6</span>
+      <span class="nav-label">BACK</span>
+    </a>
+  </div>
+  <script>
+    (function () {
+      // Paths match jeromesicard97.github.io/Photohtmls/1–25.html
+      const SLIDES = [
+        'WebImages/Photos/1.jpg',
+        'WebImages/Photos/2.jpg',
+        'WebImages/Photos/Geology.png',
+        'WebImages/Photos/2.1.jpg',
+        'WebImages/Photos/3.jpeg',
+        'WebImages/Photos/4.jpg',
+        'WebImages/Photos/4.1.jpg',
+        'WebImages/Photos/Archaeology.png',
+        'WebImages/Photos/4.2.jpeg',
+        'WebImages/Photos/5.jpg',
+        'WebImages/Photos/6.jpg',
+        'WebImages/Photos/Farm.png',
+        'WebImages/Photos/6.1.jpg',
+        'WebImages/Photos/6.2.jpg',
+        'WebImages/Photos/7.jpg',
+        'WebImages/Photos/8.jpg',
+        'WebImages/Photos/9.jpg',
+        'WebImages/Photos/Philosophy.png',
+        'WebImages/Photos/9.1.jpg',
+        'WebImages/Photos/10.jpg',
+        'WebImages/Photos/11.jpg',
+        'WebImages/Photos/SitkaRidge.png',
+        'WebImages/Photos/11.1.jpg',
+        'WebImages/Photos/12.jpg',
+        'WebImages/Photos/13.jpg',
+      ]
+      let index = 0
+      const img = document.getElementById('slide-image')
+
+      function show(n) {
+        index = ((n % SLIDES.length) + SLIDES.length) % SLIDES.length
+        img.src = SLIDES[index]
+      }
+
+      document.getElementById('prev').addEventListener('click', () => show(index - 1))
+      document.getElementById('next').addEventListener('click', () => show(index + 1))
+      show(0)
+    })()
+  </script>
+</body>
 </html>

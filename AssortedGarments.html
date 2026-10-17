@@ -1,23 +1,46 @@
-<html>
-	<head>
-		<title>Jerome Sicard - Geology Camp</title>
-		<link rel="icon" href="RecyclingSymbol.png" type="image/x-icon" />
-	</head>
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<frameset cols="5%,*,5%">
-			<!--left margin-->
-			<frame src="blank.html" frameborder="0" noresize="noresize">
-				<!--center framset-->
-				<frameset rows="5%,*,18%,5%">
-					<!--top margin-->
-					<frame src="blank.html" frameborder="0" noresize="noresize">
-					<!--content frame-->
-					<frame src="AssortedGarmentsContent.html" frameborder="0" name="ContentFrame" noresize="noresize">
-					<!--caption-->
-					<frame src="Selectors/AssortedGarmentsBackButton.html" frameborder="0" name="CaptionFrame" noresize="noresize">
-					<!--bottom margin-->
-					<frame src="blank.html" frameborder="0" noresize="noresize">
-			<!--right margin-->
-			<frame src="blank.html" frameborder="0" noresize="noresize">
-		</frameset>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Jerome Sicard - Geology Camp</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="page garments" id="garments">
+    <a class="nav-link garments-back" href="index.html" aria-label="BACK">
+      <span class="nav-number nav-number--sm" aria-hidden="true">1</span>
+      <span class="nav-label">BACK</span>
+    </a>
+  </div>
+  <script>
+    (function () {
+      const SOURCE = 'WebImages/shirts/'
+      const total = 19
+      const root = document.getElementById('garments')
+      const slides = []
+
+      const back = root.querySelector('.garments-back')
+      for (let i = 1; i <= total; i += 1) {
+        const img = document.createElement('img')
+        img.className = 'garments-slide'
+        img.src = SOURCE + i + '.jpg'
+        img.alt = 'Geology Camp ' + i
+        img.addEventListener('click', () => show(index + 1))
+        root.insertBefore(img, back)
+        slides.push(img)
+      }
+
+      let index = 0
+      function show(n) {
+        index = ((n % total) + total) % total
+        slides.forEach((slide, i) => {
+          slide.classList.toggle('is-active', i === index)
+        })
+      }
+
+      show(0)
+    })()
+  </script>
+</body>
 </html>
