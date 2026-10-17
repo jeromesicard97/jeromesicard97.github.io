@@ -179,8 +179,32 @@ const FALLBACK_ASSETS = [
   'https://williamwiebe.com/',
   'https://dakotahiggins.com/',
   'https://emmelines.biz/',
-  `${SOURCE_ORIGIN}/1994-Stryker.pdf`,
+  `${SOURCE_ORIGIN}/WebImages/PDFs/1994-Stryker.pdf`,
+  `${SOURCE_ORIGIN}/WebImages/PDFs/DEmilio,%20Capitalism%20and%20Gay%20Identity.pdf`,
 ]
+
+/** Map root-level PDF paths (removed in rebuild) to WebImages/PDFs/ */
+function rewriteAssetUrl(url) {
+  if (!url || typeof url !== 'string') return url
+  const localPdfs = {
+    '1994-Stryker.pdf': 'WebImages/PDFs/1994-Stryker.pdf',
+    'NoLoveinAlaska.pdf': 'WebImages/PDFs/NoLoveinAlaska.pdf',
+    'DEmilio, Capitalism and Gay Identity.pdf':
+      'WebImages/PDFs/DEmilio,%20Capitalism%20and%20Gay%20Identity.pdf',
+  }
+  try {
+    const parsed = new URL(url, typeof location !== 'undefined' ? location.href : SOURCE_ORIGIN)
+    const file = decodeURIComponent(parsed.pathname.split('/').pop() || '')
+    if (localPdfs[file]) {
+      const base =
+        typeof location !== 'undefined' ? `${location.origin}/` : `${SOURCE_ORIGIN}/`
+      return `${base}${localPdfs[file]}`
+    }
+  } catch {
+    /* keep original */
+  }
+  return url
+}
 
 const app = document.getElementById('app')
 const linkElements = new Map()
@@ -416,13 +440,14 @@ async function loadSite() {
     const urls = (assets?.urls || [])
       .map((item) => (typeof item === 'string' ? item : item?.url))
       .filter(Boolean)
+      .map(rewriteAssetUrl)
     if (urls.length) assetUrls = urls
 
     if (!nav?.links?.length) throw new Error('No navigation published')
     renderNavigation(nav)
   } catch (error) {
     console.warn('Sanity fetch failed; using local fallback.', error)
-    assetUrls = FALLBACK_ASSETS
+    assetUrls = FALLBACK_ASSETS.map(rewriteAssetUrl)
     renderNavigation(FALLBACK_NAVIGATION)
   }
 }
