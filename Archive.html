@@ -1,6 +1,48 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+  <!--
+    ARCHIVE PAGE — how to add content (desktop + mobile)
+    ----------------------------------------------------
+    Edit this file only (plus add image files under WebImages/).
+    styles.css already styles .archive-image-link and .archive-copy for
+    both desktop and mobile — no CSS change needed for normal additions.
+
+    1) Add image file(s), e.g.:
+         WebImages/Photos/MyWork1.jpg
+       (or WebImages/shirts/…, WebImages/PDFs/… for downloads)
+
+    2) Inside <main class="page-main archive-main">, insert blocks in order
+       (top → bottom). Typical patterns:
+
+       IMAGE (click opens full size in a new tab):
+         <a class="archive-image-link" href="WebImages/Photos/MyWork1.jpg"
+            target="_blank" rel="noopener noreferrer">
+           <img loading="lazy" src="WebImages/Photos/MyWork1.jpg" alt="">
+         </a>
+
+       CAPTION (centered by default):
+         <div class="archive-copy">
+           <p><i>Title</i>, 2025. Materials or notes.</p>
+         </div>
+
+       LONG JUSTIFIED PROSE (optional):
+         <div class="archive-copy" data-align="justify">
+           <p>Longer paragraph…</p>
+         </div>
+
+       SECTION BREAK:
+         <div class="archive-copy"><p>* * *</p></div>
+
+    3) Multiple images in a row: repeat .archive-image-link, then one caption.
+
+    4) Mobile: same HTML. Images scale to the column width; text stays
+       centered (or justified if data-align="justify"). BACK stays fixed.
+
+    5) Push via GitHub Desktop so GitHub Pages updates.
+
+    Index link: Archive is already in script.js under WORK (key: archive).
+  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Archive</title>
@@ -13,6 +55,7 @@
       <span class="nav-label">BACK</span>
     </a>
     <main class="page-main archive-main">
+<!-- Archive entries start: images + captions in vertical order -->
 <a class="archive-image-link" href="WebImages/Photos/Jeromance1.jpg" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="WebImages/Photos/Jeromance1.jpg" alt=""></a>
 <a class="archive-image-link" href="WebImages/Photos/Jeromance2.jpg" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="WebImages/Photos/Jeromance2.jpg" alt=""></a>
 <a class="archive-image-link" href="WebImages/Photos/Jeromance3.jpg" target="_blank" rel="noopener noreferrer"><img loading="lazy" src="WebImages/Photos/Jeromance3.jpg" alt=""></a>

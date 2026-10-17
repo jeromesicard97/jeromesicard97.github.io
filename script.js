@@ -1,3 +1,72 @@
+/*
+ * =============================================================================
+ * INDEX LINKS — how to edit (desktop + mobile)
+ * =============================================================================
+ *
+ * All index numbers/labels live in SITE.links below. script.js builds the DOM;
+ * styles.css places them on desktop. Mobile reuses the same list (stacked).
+ *
+ * -----------------------------------------------------------------------------
+ * ADD A NEW NUMBERED LINK
+ * -----------------------------------------------------------------------------
+ * 1) Copy an existing object in SITE.links and give it a unique `key`
+ *    (e.g. 'myProject'). Use the next free `number`.
+ * 2) Set `label` (desktop hover text) and optional `mobileLabel` (if omitted,
+ *    mobile shows "N. LABEL").
+ * 3) Choose placement:
+ *      - `position: 'middleLeft'` etc. → named slot in styles.css, OR
+ *      - `x: 40, y: 55` (percentages) → free placement (omit `position`).
+ * 4) Set what it does (`action`):
+ *      - 'link'   → opens a page/URL (set destinationType + URL/page below)
+ *      - 'reveal' → shows other links listed in `reveals: ['key1','key2']`
+ *      - 'random' → opens a random entry from ASSET_URLS
+ * 5) Set `initiallyVisible: false` for everything except ENTER.
+ * 6) Put the new link’s `key` into the right reveal group (Work vs Info):
+ *
+ *    WORK group — appears after clicking WORK (number 2):
+ *      Add your key to work.reveals (array below).
+ *      Example: reveals: [..., 'myProject']
+ *
+ *    INFO group — appears after clicking INFO (number 3):
+ *      Add your key to info.reveals.
+ *      Example: reveals: [..., 'myProject']
+ *
+ *    Landing — after ENTER (number 1):
+ *      Only keys in enter.reveals show (default: work + info).
+ *
+ * 7) Destination for action: 'link':
+ *      External site:
+ *        destinationType: 'external',
+ *        externalUrl: 'https://…',
+ *        openInNewTab: true
+ *      Page in this repo:
+ *        destinationType: 'builtIn',
+ *        builtInPage: 'MyPage.html'   // file next to index.html
+ *
+ * 8) Desktop position: if using `position`, edit the matching rule in
+ *    styles.css under .slot[data-position="…"]. If using x/y, no CSS change.
+ * 9) Mobile: no separate list. Links stack in SITE.links array order among
+ *    currently visible items. Order the array if you care about mobile order.
+ * 10) Push with GitHub Desktop (or git) so GitHub Pages updates.
+ *
+ * -----------------------------------------------------------------------------
+ * MOVE AN EXISTING LINK (desktop)
+ * -----------------------------------------------------------------------------
+ * - Named slot: change `position` and/or tweak left/top in styles.css.
+ * - Free: set `x` / `y` (0–100) and remove `position`.
+ * Mobile ignores left/top; only visibility + array order matter.
+ *
+ * -----------------------------------------------------------------------------
+ * CHANGE WORK vs INFO MEMBERSHIP
+ * -----------------------------------------------------------------------------
+ * - To show after WORK: key must be in work.reveals (and usually NOT in
+ *   info.reveals). Remove from the other group if moving.
+ * - To show after INFO: key must be in info.reveals.
+ * - Keys not listed in any reveals array never appear after a reveal click.
+ *
+ * =============================================================================
+ */
+
 const SITE = {
   title: 'Jerome Sicard',
   links: [
@@ -9,6 +78,7 @@ const SITE = {
       position: 'middle',
       action: 'reveal',
       initiallyVisible: true,
+      // After ENTER: only these keys become visible (WORK + INFO).
       reveals: ['work', 'info'],
     },
     {
@@ -18,6 +88,7 @@ const SITE = {
       position: 'middleTop',
       action: 'reveal',
       initiallyVisible: false,
+      // WORK group — add new project keys here so they appear after WORK.
       reveals: [
         'interburden',
         'geologyCamp',
@@ -33,6 +104,7 @@ const SITE = {
       position: 'rightBottomRight',
       action: 'reveal',
       initiallyVisible: false,
+      // INFO group — add about/social/assets-style keys here.
       reveals: ['assets', 'about', 'instagram'],
     },
     {
@@ -119,6 +191,11 @@ const SITE = {
   ],
 }
 
+/*
+ * ASSETS (number 11) — random open list.
+ * Add any https:// URL or site-relative path (e.g. WebImages/PDFs/file.pdf).
+ * Used when action: 'random' is clicked. Same list on mobile and desktop.
+ */
 const ASSET_URLS = [
   'https://www.youtube.com/watch?v=FBlnrRUVfo0',
   'https://cielo-saucedo.com/',
