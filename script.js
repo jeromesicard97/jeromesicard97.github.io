@@ -1,51 +1,4 @@
-import {fetchSanity} from './js/sanity-config.js'
-
-const SOURCE_ORIGIN = 'https://jeromesicard97.github.io'
-
-const NAV_QUERY = `*[_type == "navigation"][0]{
-  title,
-  links[]{
-    key,
-    number,
-    label,
-    mobileLabel,
-    x,
-    y,
-    position,
-    initiallyVisible,
-    action,
-    behavior,
-    reveals,
-    destinationType,
-    externalUrl,
-    href,
-    builtInPage,
-    openInNewTab,
-    customPage->{
-      _id,
-      title,
-      "slug": slug.current
-    }
-  }
-}`
-
-const LEGACY_CENTERS = {
-  topLeft: {x: 17, y: 19},
-  middleLeft: {x: 27, y: 43},
-  bottomLeft: {x: 15, y: 83},
-  middleTop: {x: 36.5, y: 27},
-  middle: {x: 50, y: 50},
-  middleBottom: {x: 39, y: 59},
-  leftTopRight: {x: 69, y: 17},
-  rightTopRight: {x: 90.5, y: 30},
-  middleRight: {x: 82, y: 55.5},
-  leftBottomRight: {x: 71, y: 69.5},
-  rightBottomRight: {x: 87, y: 86},
-}
-
-const ASSETS_QUERY = `*[_type == "assetsSettings"][0]{ urls[]{ url, label } }`
-
-const FALLBACK_NAVIGATION = {
+const SITE = {
   title: 'Jerome Sicard',
   links: [
     {
@@ -166,7 +119,7 @@ const FALLBACK_NAVIGATION = {
   ],
 }
 
-const FALLBACK_ASSETS = [
+const ASSET_URLS = [
   'https://www.youtube.com/watch?v=FBlnrRUVfo0',
   'https://cielo-saucedo.com/',
   'https://sadiecornettecook.com/',
@@ -179,37 +132,28 @@ const FALLBACK_ASSETS = [
   'https://williamwiebe.com/',
   'https://dakotahiggins.com/',
   'https://emmelines.biz/',
-  `${SOURCE_ORIGIN}/WebImages/PDFs/1994-Stryker.pdf`,
-  `${SOURCE_ORIGIN}/WebImages/PDFs/DEmilio,%20Capitalism%20and%20Gay%20Identity.pdf`,
+  'WebImages/PDFs/1994-Stryker.pdf',
+  'WebImages/PDFs/DEmilio,%20Capitalism%20and%20Gay%20Identity.pdf',
 ]
 
-/** Map root-level PDF paths (removed in rebuild) to WebImages/PDFs/ */
-function rewriteAssetUrl(url) {
-  if (!url || typeof url !== 'string') return url
-  const localPdfs = {
-    '1994-Stryker.pdf': 'WebImages/PDFs/1994-Stryker.pdf',
-    'NoLoveinAlaska.pdf': 'WebImages/PDFs/NoLoveinAlaska.pdf',
-    'DEmilio, Capitalism and Gay Identity.pdf':
-      'WebImages/PDFs/DEmilio,%20Capitalism%20and%20Gay%20Identity.pdf',
-  }
-  try {
-    const parsed = new URL(url, typeof location !== 'undefined' ? location.href : SOURCE_ORIGIN)
-    const file = decodeURIComponent(parsed.pathname.split('/').pop() || '')
-    if (localPdfs[file]) {
-      const base =
-        typeof location !== 'undefined' ? `${location.origin}/` : `${SOURCE_ORIGIN}/`
-      return `${base}${localPdfs[file]}`
-    }
-  } catch {
-    /* keep original */
-  }
-  return url
+const LEGACY_CENTERS = {
+  topLeft: {x: 17, y: 19},
+  middleLeft: {x: 27, y: 43},
+  bottomLeft: {x: 15, y: 83},
+  middleTop: {x: 36.5, y: 27},
+  middle: {x: 50, y: 50},
+  middleBottom: {x: 39, y: 59},
+  leftTopRight: {x: 69, y: 17},
+  rightTopRight: {x: 90.5, y: 30},
+  middleRight: {x: 82, y: 55.5},
+  leftBottomRight: {x: 71, y: 69.5},
+  rightBottomRight: {x: 87, y: 86},
 }
 
 const app = document.getElementById('app')
 const linkElements = new Map()
 const linksByKey = new Map()
-let assetUrls = FALLBACK_ASSETS
+let assetUrls = ASSET_URLS
 
 function normalizeLabel(label) {
   return String(label || '').trim().toUpperCase()
@@ -226,42 +170,24 @@ function desktopLabel(link) {
 function mobileLabel(link) {
   const base = link.mobileLabel
     ? normalizeLabel(link.mobileLabel)
-    : link.key === 'enter'
-      ? 'JEROME SICARD'
-      : normalizeLabel(link.label)
-  const number = link.number ?? ''
-  return number === '' ? base : `${number}. ${base}`
+    : normalizeLabel(link.label)
+  if (link.number != null) return `${link.number}. ${base}`
+  return base
 }
 
 function resolveDestination(link) {
-  const action = linkAction(link)
-  if (action !== 'link') return null
-
-  if (link.destinationType === 'customPage' && link.customPage?.slug) {
+  if (link.destinationType === 'external' || link.externalUrl || link.href) {
     return {
-      href: `page.html?slug=${encodeURIComponent(link.customPage.slug)}`,
-      newTab: false,
+      href: link.externalUrl || link.href,
+      newTab: Boolean(link.openInNewTab ?? true),
     }
   }
-
-  if (link.destinationType === 'builtIn' && link.builtInPage) {
+  if (link.destinationType === 'builtIn' || link.builtInPage) {
     return {href: link.builtInPage, newTab: Boolean(link.openInNewTab)}
   }
-
-  const external = link.externalUrl || link.href
-  if (external) {
-    if (/^https?:\/\//i.test(external) || external.startsWith('mailto:')) {
-      return {href: external, newTab: Boolean(link.openInNewTab)}
-    }
-    if (/\.html(?:[?#].*)?$/i.test(external)) {
-      return {href: external, newTab: Boolean(link.openInNewTab)}
-    }
-    return {
-      href: `${SOURCE_ORIGIN}/${external.replace(/^\.\//, '')}`,
-      newTab: Boolean(link.openInNewTab),
-    }
+  if (link.customPage?.slug) {
+    return {href: `page.html?slug=${encodeURIComponent(link.customPage.slug)}`, newTab: false}
   }
-
   return null
 }
 
@@ -270,16 +196,16 @@ function coordsFor(link) {
     return {x: link.x, y: link.y, free: true}
   }
   if (link.position && LEGACY_CENTERS[link.position]) {
-    return {...LEGACY_CENTERS[link.position], free: true}
+    return {...LEGACY_CENTERS[link.position], free: false}
   }
   return null
 }
 
 function createSlot(link) {
+  const coords = coordsFor(link)
   const slot = document.createElement('div')
   slot.className = 'slot'
-  const coords = coordsFor(link)
-  if (coords) {
+  if (coords?.free) {
     slot.dataset.free = 'true'
     slot.style.left = `${coords.x}%`
     slot.style.top = `${coords.y}%`
@@ -289,70 +215,30 @@ function createSlot(link) {
   return slot
 }
 
-function revealKeys(keys) {
-  for (const key of keys || []) {
-    const el = linkElements.get(key)
-    if (el) el.hidden = false
+function hideAllExcept(keepKeys) {
+  const keep = new Set(keepKeys)
+  for (const [key, el] of linkElements) {
+    el.hidden = !keep.has(key)
   }
-}
-
-function hideKeys(keys) {
-  for (const key of keys || []) {
-    const el = linkElements.get(key)
-    if (el) el.hidden = true
-  }
-}
-
-function openRandom() {
-  const pool = (assetUrls || []).filter(Boolean)
-  if (!pool.length) return
-  const pick = pool[Math.floor(Math.random() * pool.length)]
-  window.open(pick, '_blank', 'noopener,noreferrer')
 }
 
 function handleActivate(link) {
   const action = linkAction(link)
-
   if (action === 'reveal') {
-    if (link.key === 'work') {
-      hideKeys(linksByKey.get('info')?.reveals)
-      revealKeys(link.reveals)
-      return
-    }
-    if (link.key === 'info') {
-      hideKeys(linksByKey.get('work')?.reveals)
-      revealKeys(link.reveals)
-      return
-    }
-    revealKeys(link.reveals)
+    const revealed = Array.isArray(link.reveals) ? link.reveals : []
+    hideAllExcept(revealed)
     return
   }
-
   if (action === 'random') {
-    openRandom()
-    return
+    if (!assetUrls.length) return
+    const url = assetUrls[Math.floor(Math.random() * assetUrls.length)]
+    window.open(url, '_blank', 'noopener,noreferrer')
   }
-
-  const dest = resolveDestination(link)
-  if (!dest?.href) return
-  if (dest.newTab) window.open(dest.href, '_blank', 'noopener,noreferrer')
-  else window.location.href = dest.href
 }
 
 function normalizeLinks(links) {
-  return (links || []).map((link) => {
-    const action = linkAction(link)
-    // Migrate legacy navigate + href documents
-    if (!link.action && link.behavior === 'navigate' && link.href) {
-      const isHtml = /\.html(?:[?#].*)?$/i.test(link.href) && !link.href.includes('://')
-      return {
-        ...link,
-        action: 'link',
-        destinationType: isHtml ? 'builtIn' : 'external',
-        builtInPage: isHtml ? link.href : undefined,
-        externalUrl: isHtml ? undefined : link.href,
-      }
-    }
+  return links.map((link) => {
+    let action = link.action
     if (!link.action && link.behavior === 'reveal') {
       return {...link, action: 'reveal'}
     }
@@ -364,13 +250,11 @@ function normalizeLinks(links) {
 }
 
 function renderNavigation(data) {
-  const title = data?.title || FALLBACK_NAVIGATION.title
+  const title = data?.title || SITE.title
   document.title = title
 
   const links = normalizeLinks(
-    Array.isArray(data?.links) && data.links.length
-      ? data.links
-      : FALLBACK_NAVIGATION.links,
+    Array.isArray(data?.links) && data.links.length ? data.links : SITE.links,
   )
 
   app.replaceChildren()
@@ -430,26 +314,4 @@ function renderNavigation(data) {
   }
 }
 
-async function loadSite() {
-  try {
-    const [nav, assets] = await Promise.all([
-      fetchSanity(NAV_QUERY),
-      fetchSanity(ASSETS_QUERY),
-    ])
-
-    const urls = (assets?.urls || [])
-      .map((item) => (typeof item === 'string' ? item : item?.url))
-      .filter(Boolean)
-      .map(rewriteAssetUrl)
-    if (urls.length) assetUrls = urls
-
-    if (!nav?.links?.length) throw new Error('No navigation published')
-    renderNavigation(nav)
-  } catch (error) {
-    console.warn('Sanity fetch failed; using local fallback.', error)
-    assetUrls = FALLBACK_ASSETS.map(rewriteAssetUrl)
-    renderNavigation(FALLBACK_NAVIGATION)
-  }
-}
-
-loadSite()
+renderNavigation(SITE)
