@@ -711,21 +711,32 @@ body.nl-page {
     overflow-wrap: anywhere;
   }
 
-  /* Subpages: keep plain hover labels as the mobile text */
+  /* Subpages: numbered mobile labels (same pattern as index) */
   .page .nav-label,
   .nl-stage .nav-label,
   .pub-stage .nav-label,
   .garments .nav-label,
   .slideshow .nav-label,
   .citations .nav-label {
+    display: none;
+  }
+
+  .page .nav-label-mobile,
+  .nl-stage .nav-label-mobile,
+  .pub-stage .nav-label-mobile,
+  .garments .nav-label-mobile,
+  .slideshow .nav-label-mobile,
+  .citations .nav-label-mobile {
     display: block;
-    width: 100%;
+    width: auto;
     max-width: none;
     margin: 0;
     padding: 0;
+    font-family: Arial, Helvetica, sans-serif;
     font-size: 14pt;
     line-height: 1.4;
     text-align: left;
+    text-transform: uppercase;
     overflow-wrap: anywhere;
   }
 
@@ -761,7 +772,7 @@ body.nl-page {
     padding: 1.5rem 1.1rem 2.5rem;
   }
 
-  /* No Love hub: keep absolute inset layout — no stack scroll / no crop */
+  /* No Love hub: absolute inset layout; BACK left-aligned, others irregular X */
   .nl-stage {
     display: block;
     height: 100dvh;
@@ -773,40 +784,40 @@ body.nl-page {
 
   .nl-stage .nav-link {
     position: absolute;
-    transform: translate(-50%, -50%);
     width: max-content;
-    max-width: min(88vw, 14rem);
-    text-align: center;
+    max-width: min(72vw, 14rem);
     padding: 0;
+    text-align: left;
   }
 
-  .nl-stage .nav-label {
-    display: block;
-    width: auto;
-    max-width: min(88vw, 14rem);
-    margin: 0;
-    text-align: center;
-    overflow-wrap: anywhere;
+  .nl-stage .nav-label-mobile {
+    text-align: left;
   }
 
+  /* BACK: same left margin feel as index mobile */
   .nl-stage .nav-link[data-key="back"] {
-    top: 14%;
-    left: 22%;
+    top: 10%;
+    left: 1.1rem;
+    transform: none;
   }
 
+  /* Remaining links: irregular horizontal stagger */
   .nl-stage .nav-link[data-key="content"] {
-    top: 36%;
-    left: 48%;
+    top: 32%;
+    left: 42%;
+    transform: none;
   }
 
   .nl-stage .nav-link[data-key="bibliography"] {
-    top: 58%;
-    left: 48%;
+    top: 54%;
+    left: 8%;
+    transform: none;
   }
 
   .nl-stage .nav-link[data-key="publication"] {
-    top: 80%;
-    left: 48%;
+    top: 76%;
+    left: 28%;
+    transform: none;
   }
 
   .about-page {
