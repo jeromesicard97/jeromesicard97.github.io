@@ -43,9 +43,9 @@ function renderBlocks(blocks) {
     if (block._type === 'archiveText') {
       const wrap = document.createElement('div')
       wrap.className = 'archive-copy'
-      wrap.dataset.align = block.alignment === 'center' ? 'center' : 'justify'
+      const align = block.alignment === 'justify' ? 'justify' : 'center'
+      wrap.dataset.align = align
       const p = document.createElement('p')
-      p.style.textAlign = block.alignment === 'center' ? 'center' : 'justify'
       p.innerHTML = escapeHtml(block.text || '').replace(/\n/g, '<br>')
       wrap.appendChild(p)
       main.appendChild(wrap)
@@ -81,6 +81,18 @@ async function loadArchive() {
   try {
     const data = await fetchSanity(QUERY)
     if (!data?.blocks?.length) throw new Error('No archive content')
+
+    // Prefer the full static Archive.html when Sanity is incomplete
+    // (current CMS seed ends at DT2 and omits the I9 prose block).
+    const staticImages = main.querySelectorAll('img').length
+    const sanityImages = data.blocks.filter((b) => b._type === 'archiveImage').length
+    if (sanityImages < staticImages) {
+      console.warn(
+        `Sanity archive incomplete (${sanityImages} images vs ${staticImages} static); keeping static markup.`,
+      )
+      return
+    }
+
     if (data.title && titleEl) titleEl.textContent = data.title
     renderBlocks(data.blocks)
   } catch (error) {

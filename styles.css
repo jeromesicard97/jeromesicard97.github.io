@@ -287,15 +287,21 @@ a {
   text-align: center;
 }
 
+.archive-main .archive-copy p,
+.archive-main .archive-copy a,
+.archive-main .archive-sep {
+  text-align: center;
+}
+
 .archive-main .archive-copy p {
   margin: 0 0 0.75rem;
-  text-align: center;
 }
 
 .archive-main .archive-copy[data-align="center"] p {
   text-align: center;
 }
 
+/* Long Interburden prose under I9 only */
 .archive-main .archive-copy[data-align="justify"],
 .archive-main .archive-copy[data-align="justify"] p {
   text-align: justify;
