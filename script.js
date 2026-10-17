@@ -95,6 +95,7 @@ const SITE = {
         'noLoveInAlaska',
         'divineTheory',
         'archive',
+        'aurora'
       ],
     },
     {
@@ -228,6 +229,9 @@ const LEGACY_CENTERS = {
 }
 
 const app = document.getElementById('app')
+if (!app) {
+  throw new Error('index.html is missing <main id="app"> — cannot render links.')
+}
 const linkElements = new Map()
 const linksByKey = new Map()
 let assetUrls = ASSET_URLS
