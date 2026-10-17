@@ -151,8 +151,21 @@ const SITE = {
       initiallyVisible: false,
     },
     {
-      key: 'archive',
+      key: 'aurora',
       number: 8,
+      label: 'AURORA',
+      position: x: 38, y: 30,
+      action: 'link',
+      destinationType: 'external',
+      externalUrl: 'https://www.contemporaryartlibrary.org/project/jerome-sicard-at-weatherproof-chicago-105263?from=%2Fartist%2Fjerome-sicard-62406',
+      openInNewTab: true,
+      initiallyVisible: false,
+    },
+
+
+    {
+      key: 'archive',
+      number: 9,
       label: 'ARCHIVE',
       position: 'middleBottom',
       action: 'link',
@@ -160,9 +173,11 @@ const SITE = {
       builtInPage: 'Archive.html',
       initiallyVisible: false,
     },
+
+
     {
       key: 'about',
-      number: 9,
+      number: 10,
       label: 'ABOUT',
       position: 'middleRight',
       action: 'link',
@@ -172,7 +187,7 @@ const SITE = {
     },
     {
       key: 'instagram',
-      number: 10,
+      number: 11,
       label: 'INSTAGRAM',
       position: 'rightTopRight',
       action: 'link',
@@ -183,7 +198,7 @@ const SITE = {
     },
     {
       key: 'assets',
-      number: 11,
+      number: 12,
       label: 'ASSETS',
       position: 'topLeft',
       action: 'random',
