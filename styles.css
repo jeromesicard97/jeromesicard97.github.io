@@ -12,10 +12,11 @@
  *   x: 40, y: 55   // percentages from top-left; omit `position`
  * which uses .slot[data-free='true'] below.
  *
- * MOBILE (see @media at bottom of this file):
+ * TOUCH / PHONE layout (see @media (hover: none) and (pointer: coarse)):
+ * - Uses input type, not viewport width — rotation must not change text size.
  * - Desktop left/top are ignored. Links stack full-width, left-aligned.
- * - Adding a link in script.js is enough for mobile; no new CSS required
- *   unless you change global mobile typography/spacing in that media query.
+ * - Adding a link in script.js is enough for touch; no new CSS required
+ *   unless you change global touch typography/spacing in that media query.
  *
  * ARCHIVE content styling is further down under ".archive-page".
  * =============================================================================
@@ -25,6 +26,11 @@
 *::before,
 *::after {
   box-sizing: border-box;
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
 }
 
 html,
@@ -225,7 +231,8 @@ a {
   display: none;
 }
 
-@media (hover: hover) and (min-width: 769px) {
+/* Hover labels: fine pointer only — not tied to viewport width / rotation */
+@media (hover: hover) and (pointer: fine) {
   .nav-link:hover .nav-label,
   .nav-link:focus-visible .nav-label {
     display: block;
@@ -435,35 +442,74 @@ a {
   transform: translateX(-35%);
 }
 
-/* No Love hub — staggered positions */
+/* No Love hub — locked viewport, staggered centers (no page scroll) */
+html:has(.nl-page),
+body.nl-page {
+  height: 100%;
+  overflow: hidden;
+}
+
 .nl-stage {
   position: relative;
-  min-height: 100vh;
-  min-height: 100dvh;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  max-height: 100dvh;
+  overflow: hidden;
+}
+
+/* Fixed number size (same as index) — do not scale with viewport */
+.nl-stage .nav-number {
+  font-size: 100px;
+  line-height: 100px;
+  height: 100px;
+}
+
+.nl-stage .nav-label {
+  max-width: 14ch;
+}
+
+/* Centers stay inset so long labels (BIBLIOGRAPHY) clear common edges */
+.nl-stage .nav-link {
+  position: absolute;
+  transform: translate(-50%, -50%);
+  width: max-content;
+  max-width: min(90vw, 16rem);
 }
 
 .nl-stage .nav-link[data-key="back"] {
-  position: absolute;
-  top: 10%;
-  left: 8%;
+  top: 18%;
+  left: 16%;
 }
 
 .nl-stage .nav-link[data-key="content"] {
-  position: absolute;
-  top: 38%;
-  left: 36%;
+  top: 42%;
+  left: 40%;
 }
 
 .nl-stage .nav-link[data-key="bibliography"] {
-  position: absolute;
-  top: 34%;
-  left: 68%;
+  top: 36%;
+  left: 70%;
 }
 
 .nl-stage .nav-link[data-key="publication"] {
-  position: absolute;
-  top: 62%;
-  left: 58%;
+  top: 72%;
+  left: 55%;
+}
+
+/* Narrow desktop windows: pull right-side links inward (layout only) */
+@media (max-width: 1100px) and (hover: hover) and (pointer: fine) {
+  .nl-stage .nav-link[data-key="bibliography"] {
+    left: 64%;
+  }
+
+  .nl-stage .nav-link[data-key="publication"] {
+    left: 52%;
+  }
+
+  .nl-stage .nav-link[data-key="content"] {
+    left: 36%;
+  }
 }
 
 /* Publication subpage links */
@@ -581,16 +627,17 @@ a {
 }
 
 /*
- * MOBILE INDEX (max-width: 768px)
- * -------------------------------
+ * TOUCH / PHONE INDEX — (hover: none) and (pointer: coarse)
+ * ---------------------------------------------------------
+ * Tied to input type, NOT viewport width, so rotating a phone (or resizing
+ * a desktop window) does not switch between 100px numbers and 14pt labels.
  * - Absolute desktop positions are cleared; links stack in document order.
- * - Numbers hide; .nav-label-mobile text from script.js is shown.
+ * - Numbers hide; .nav-label-mobile text from script.js is shown at fixed 14pt.
  * - New SITE.links entries appear here automatically when visible.
  * - Work vs Info visibility is still controlled only by script.js reveals.
- * Do not add per-link mobile position CSS unless you intentionally fork layout.
  */
-/* Mobile: labels replace numbers; ≥14pt; stacked without overlap */
-@media (max-width: 768px) {
+/* Touch: labels replace numbers; fixed 14pt; stacked without overlap */
+@media (hover: none) and (pointer: coarse) {
   .stage {
     display: flex;
     flex-direction: column;
@@ -657,7 +704,7 @@ a {
     margin: 0;
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
-    font-size: max(14pt, 1rem);
+    font-size: 14pt;
     line-height: 1.4;
     text-align: left;
     text-transform: uppercase;
@@ -676,7 +723,7 @@ a {
     max-width: none;
     margin: 0;
     padding: 0;
-    font-size: max(14pt, 1rem);
+    font-size: 14pt;
     line-height: 1.4;
     text-align: left;
     overflow-wrap: anywhere;
@@ -695,7 +742,6 @@ a {
 
   .garments-back,
   .slideshow-back,
-  .nl-stage .nav-link,
   .pub-stage .nav-link {
     position: static;
     transform: none;
@@ -705,7 +751,6 @@ a {
   }
 
   .page,
-  .nl-stage,
   .pub-stage,
   .garments,
   .slideshow {
@@ -714,6 +759,54 @@ a {
     align-items: stretch;
     gap: 1.1rem;
     padding: 1.5rem 1.1rem 2.5rem;
+  }
+
+  /* No Love hub: keep absolute inset layout — no stack scroll / no crop */
+  .nl-stage {
+    display: block;
+    height: 100dvh;
+    max-height: 100dvh;
+    overflow: hidden;
+    padding: 0;
+    gap: 0;
+  }
+
+  .nl-stage .nav-link {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    width: max-content;
+    max-width: min(88vw, 14rem);
+    text-align: center;
+    padding: 0;
+  }
+
+  .nl-stage .nav-label {
+    display: block;
+    width: auto;
+    max-width: min(88vw, 14rem);
+    margin: 0;
+    text-align: center;
+    overflow-wrap: anywhere;
+  }
+
+  .nl-stage .nav-link[data-key="back"] {
+    top: 14%;
+    left: 22%;
+  }
+
+  .nl-stage .nav-link[data-key="content"] {
+    top: 36%;
+    left: 48%;
+  }
+
+  .nl-stage .nav-link[data-key="bibliography"] {
+    top: 58%;
+    left: 48%;
+  }
+
+  .nl-stage .nav-link[data-key="publication"] {
+    top: 80%;
+    left: 48%;
   }
 
   .about-page {
@@ -755,7 +848,6 @@ a {
   }
 
   .page-back,
-  .nl-stage .nav-link[data-key="back"],
   .pub-stage .nav-link[data-key="back"],
   .garments-back,
   .slideshow-back,

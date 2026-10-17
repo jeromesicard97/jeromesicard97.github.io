@@ -282,7 +282,7 @@ const ASSET_URLS = [
   'https://mitpress.mit.edu/9781635900026/carceral-capitalism/',
   'https://www.instagram.com/p/CXrwXOwsXdK/',
   'https://www.devinkenny.info/Do-You-Even-Talk-To-Your-Neighbors',
-  'https://www.pennlawreview.com/wp-content/uploads/2021/05/Pargendler_final.pdf',
+  'https://pennlawreview.com/2021/05/11/veil-peeking-the-corporation-as-a-nexus-for-regulation/',
   'https://darkforesttheory.com/',
   'https://sophiefriedmanpappas.com/',
   'https://www.artforum.com/events/gozie-ojini-249950/',
