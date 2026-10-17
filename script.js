@@ -154,7 +154,9 @@ const SITE = {
       key: 'aurora',
       number: 8,
       label: 'AURORA',
-      position: x: 38, y: 30,
+      // Free placement: use x/y (not `position: x: …` — that is invalid JS)
+      x: 38,
+      y: 30,
       action: 'link',
       destinationType: 'external',
       externalUrl: 'https://www.contemporaryartlibrary.org/project/jerome-sicard-at-weatherproof-chicago-105263?from=%2Fartist%2Fjerome-sicard-62406',
