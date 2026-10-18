@@ -242,7 +242,7 @@ const ASSET_URLS = [
   'https://americanhistory.si.edu/collections/search/object/nmah_556193',
   'https://femalesymbol.bandcamp.com/releases',
   'https://www.youtube.com/watch?v=lJ0wfobjdPA',
-  'https://ispeakyourlanguagebutyoudontspeakmine.net/',
+  'https://www.contemporaryartlibrary.org/project/craig-jun-li-at-chapter-ny-new-york-62626?from=%2Fartist%2Fcraig-jun-li-42042',
   'https://www.sourcetype.com/editorial/629/all-at-once-samuel-r-delany-s-simultaneity-mark',
   'http://brycewilner.com/pdfs/wilner_the_describer.pdf',
   'http://ghebaly.com/wp-content/uploads/2017/06/Ghebaly_CL_Master-Press.pdf',
