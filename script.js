@@ -341,6 +341,10 @@ const ASSET_URLS = [
   'https://aurora.tech/',
   'https://www.alcoa.com/global/en/home/',
   'https://www.worthpoint.com/worthopedia/unused-sets-scarce-art-deco-alcoa-237259030',
+  'https://www.anna-sophie-berger.com/',
+  'https://upload.wikimedia.org/wikipedia/commons/a/a1/Shuttle_profiles.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=thumbnail_unscaled',
+  'https://assets.publishing.service.gov.uk/media/66d82294a399e0dcf5200b2f/Grenfell_Tower_Inquiry_-_Phase_1_report_Executive_Summary.pdf?utm_source=chatgpt.com',
+  'https://upload.wikimedia.org/wikipedia/commons/e/e0/Grenfell_Tower_fire_%28wider_view%29.jpg?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original'
 ]
 
 const LEGACY_CENTERS = {
